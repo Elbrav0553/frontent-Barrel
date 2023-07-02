@@ -4,7 +4,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 export function View() {
     const isFirstInput = useRef(true)
     const { id } = useParams();
-    // console.log(id);
+    
     const [booking, setBooking] = useState([]);
     const navigate = useNavigate();
 

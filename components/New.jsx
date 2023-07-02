@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
 export function New() {
-    // console.log(id);
+    
     const [booking, setBooking] = useState([]);
     const navigate = useNavigate();
 
@@ -16,7 +16,7 @@ export function New() {
         const fields = new window.FormData(e.target)
         console.log(fields)
         
-        //console.log(formData)
+        
         try {
             fetch(`http://localhost:8000/booking/new`, {
                 method: 'POST',
@@ -40,7 +40,7 @@ export function New() {
             <form onSubmit={handleSubmit}>
                 <div className="mb-3 mt-3">
                     <label className="form-label"> Status:</label>
-                    <input type="number" className="form-control" id='Status' placeholder="Edit your status" name="status" defaultValue={booking.status} />
+                    <input type="number" className="form-control" id='Status' placeholder="Edit your status" required="required" name="status" defaultValue={booking.status} />
                 </div>
                 <div className="mb-3 mt-3">
                     <label className="form-label">Description:</label>

@@ -22,9 +22,7 @@ export function BookingList() {
                 return res.json()
             })
             .then(response => {
-                //console.log(response)
-                //JSON.parse(response.data)
-                //console.log(data)
+                
                 setBookingData(response)
 
             })
@@ -41,8 +39,7 @@ export function BookingList() {
                 return res.json()
             })
             .then(response => {
-                //console.log(response.data)
-                const data = response.data//JSON.parse(response.data)
+                const data = response.data
                 console.log(data)
 
                 const newUserData = bookingData.filter((item) => {

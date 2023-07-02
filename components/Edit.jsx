@@ -5,7 +5,6 @@ import { useParams, useNavigate } from 'react-router-dom';
 export function Edit() {
     const isFirstInput = useRef(true)
     const { id } = useParams();
-    // console.log(id);
     const [booking, setBooking] = useState([]);
     const navigate = useNavigate();
 
@@ -24,8 +23,8 @@ export function Edit() {
             .then(res => res.json())
             .then(response => {
                 console.log(response)
-                const data = response.data//JSON.parse(response.data)
-                //console.log(data)
+                const data = response.data
+                
                 setBooking(data)
 
             })
@@ -41,14 +40,7 @@ export function Edit() {
         e.preventDefault();
         const fields = new window.FormData(e.target)
         console.log(fields)
-        //console.log(fields.get('status'))
-        //let formData = new FormData();
-        //formData.append('status', 5);
-        //formData.append('description', 'John123');
-    
-        //TODO VALIDATE DATA
-
-        //console.log(formData)
+        
         try {
             fetch(`http://localhost:8000/booking/${id}/edit`, {
                 method: 'POST',
@@ -76,7 +68,7 @@ export function Edit() {
                 </div>
                 <div className="mb-3 mt-3">
                     <label className="form-label"> Status:</label>
-                    <input type="number" className="form-control" id='Status' placeholder="Edit your status" name="status" defaultValue={booking.status} />
+                    <input type="number" className="form-control" id='Status' placeholder="Edit your status" required="required" name="status" defaultValue={booking.status} />
                 </div>
                 <div className="mb-3 mt-3">
                     <label className="form-label">Description:</label>
